@@ -1,0 +1,1 @@
+# pychic_type
