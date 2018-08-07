@@ -1,4 +1,4 @@
-from entities.Image import Image
+from util.Image import Image
 from scenes.Scene import Scene
 
 class Background(Scene):

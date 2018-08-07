@@ -1,3 +1,5 @@
+import pyglet
+
 from scenes.Scene import Scene
 
 class BigText(Scene):
@@ -10,8 +12,13 @@ class BigText(Scene):
 		pass
 
 	def draw(self, g, params):
-		pass
-		#pyxel.text(10,10, self.text[self.step], 7)
+		pyglet.text.Label(self.text[self.step],
+                          font_name='Impact',
+                          font_size=168,
+                          batch=g.main_batch,
+                          group=g.foreground,
+                          x=g.window.width/2, y=g.window.height/2,
+                          anchor_x='center', anchor_y='center')
 
 	def trigger(self, params):
 		self.step += 1

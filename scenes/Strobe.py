@@ -10,12 +10,12 @@ class Strobe(Scene):
 		self.speed = speed
 
 	def update(self, params):
-		#if(pyxel.frame_count%self.speed == 0):
-		self.strobe = not self.strobe
+		if(params.frame_count%self.speed == 0):
+			self.strobe = not self.strobe
 
 	def draw(self, g, params):
 		if(self.strobe and self.state):
 			if(self.color == "rand"):
-				g.draw_rect(0,0,params.width,params.height, color.WHITE)
+				g.fill_rect(0,0,params.width,params.height, color.WHITE)
 			else:
-				g.draw_rect(0,0,params.width,params.height, color.WHITE)
+				g.fill_rect(0,0,params.width,params.height, color.WHITE)
