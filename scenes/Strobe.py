@@ -3,7 +3,7 @@ import util.color as color
 from random import randint
 
 class Strobe(Scene):
-	def __init__(self, switch_type, key, color=7, speed=1):
+	def __init__(self, switch_type, key, color, speed=1):
 		super().__init__(switch_type, key)
 		self.strobe = True
 		self.color = color
@@ -18,4 +18,4 @@ class Strobe(Scene):
 			if(self.color == "rand"):
 				g.fill_rect(0,0,params.width,params.height, color.WHITE)
 			else:
-				g.fill_rect(0,0,params.width,params.height, color.WHITE)
+				g.fill_rect(0,0,params.width,params.height, self.color)

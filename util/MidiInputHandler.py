@@ -5,6 +5,7 @@ class MidiInputHandler(object):
 		self.app = app
 		self.port = port
 		self._wallclock = time.time()
+		self.params = app.params
 
 	def __call__(self, event, data=None):
 		message, deltatime = event
@@ -18,8 +19,8 @@ class MidiInputHandler(object):
 		for scene in self.app.scenes:
 			if(scene.key == key):
 				if(scene.switch_type == "trigger" and state != 0 ):
-					scene.trigger()
+					scene.trigger(self.params)
 				if(scene.switch_type == "toggle" and state != 0):
-					scene.toggle()
+					scene.toggle(self.params)
 				if(scene.switch_type == "hold"):
-					scene.hold(state)
+					scene.hold(self.params, state)

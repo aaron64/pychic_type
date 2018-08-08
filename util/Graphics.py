@@ -10,6 +10,8 @@ class Graphics:
 		self.main_batch = 0
 		self.background = pyglet.graphics.OrderedGroup(0)
 		self.foreground = pyglet.graphics.OrderedGroup(1)
+		pyglet.gl.glEnable(pyglet.gl.GL_BLEND)
+		pyglet.gl.glBlendFunc(pyglet.gl.GL_SRC_ALPHA, pyglet.gl.GL_ONE_MINUS_SRC_ALPHA)
 
 	def begin_drawing(self):
 		self.main_batch = pyglet.graphics.Batch()

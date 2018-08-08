@@ -14,7 +14,6 @@ class Parallax(Scene):
 		pass
 
 	def draw(self, g, params):
-		#self.image.draw(g, 0,0)
 		i_range = math.ceil(params.width / (self.image.width + self.space)) + 1
 		j_range = math.ceil(params.height / (self.image.height + self.space)) + 1
 		if(True):

@@ -8,7 +8,7 @@ class BackgroundColors(Scene):
 		
 	def draw(self, g, params):
 		if(True):
-			g.fill_rect(0,0,params.width,params.height, self.colors[self.color_counter])
+			g.fill_rect(0,0,params.width,params.height, self.colors[self.color_counter%len(self.colors)])
 
 	def trigger(self, params):
-		self.color_counter = [len(self.colors)%self.color_counter]
+		self.color_counter+=1

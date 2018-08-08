@@ -17,4 +17,5 @@ class Scene:
 		self.state = not state
 
 	def hold(self, params, state):
+		print(state)
 		self.state = state
