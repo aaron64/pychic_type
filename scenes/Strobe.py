@@ -16,6 +16,6 @@ class Strobe(Scene):
 	def draw(self, g, params):
 		if(self.strobe and self.state):
 			if(self.color == "rand"):
-				g.fill_rect(0,0,params.width,params.height, color.WHITE)
+				g.fill_rect(0,0,params.width,params.height, color.get_color("white"))
 			else:
-				g.fill_rect(0,0,params.width,params.height, color.WHITE)
+				g.fill_rect(0,0,params.width,params.height, color.get_color("white"))

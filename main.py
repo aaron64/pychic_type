@@ -27,7 +27,7 @@ class App:
 
 		self.scenes = []
 		self.scenes.append(BackgroundColors("trigger", 52, colors=[color.get_color("blue"), color.get_color("purple")]))
-		self.scenes.append(Strobe("hold", 48, color=color.WHITE, speed=30))
+		self.scenes.append(Strobe("hold", 48, color=color.get_color("white"), speed=30))
 		self.scenes.append(Parallax("hold", 50, "flower"))
 		self.scenes.append(BigText("trigger", 54, "hello world"))
 
