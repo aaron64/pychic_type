@@ -13,11 +13,14 @@ class Flash(Scene):
 	def update(self, params):
 		self.opacity -= self.speed
 		if(self.opacity < 0):
+			self.visible = False
 			self.opacity = 0
 		self.color = color.set_opacity(self.color, self.opacity)
 
 	def draw(self, g, params):
-		g.fill_rect(0,0,params.width,params.height, self.color)
+		if(self.visible):
+			g.fill_rect(0,0,params.width,params.height, self.color, g.foreground)
 
 	def trigger(self, params):
 		self.opacity = 255
+		self.visible = True

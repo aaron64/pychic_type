@@ -23,4 +23,4 @@ class MidiInputHandler(object):
 				if(scene.switch_type == "toggle" and state != 0):
 					scene.toggle(self.params)
 				if(scene.switch_type == "hold"):
-					scene.hold(self.params, state)
+					scene.hold(self.params, state > 0)

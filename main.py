@@ -17,6 +17,7 @@ import sys
 class App:
 	def __init__(self):
 		self.params = Params()
+		color.init_colors()
 
 		port = sys.argv[1] if len(sys.argv) > 1 else None
 		midiin, port_name = midiutil.open_midiinput(port)
@@ -29,14 +30,15 @@ class App:
 		color.add_color("purple", [184, 20, 240, 255])
 
 		self.scenes = []
-		self.scenes.append(BackgroundColors("trigger", 44, colors=[color.get_color("terq"), color.get_color("blue"), color.get_color("purple")]))
-		self.scenes.append(Strobe("hold", 48, color.WHITE, speed=3))
-		self.scenes.append(Parallax("hold", 54, "flower"))
-		self.scenes.append(BigText("trigger", 50, '''I I I I I do what I wanna wanna do wanna wanna do what I
+
+		# self.scenes.append(BackgroundColors("trigger", 44, colors=[color.get_color("terq"), color.get_color("blue"), color.get_color("purple")]))
+		self.scenes.append(Strobe("hold", 48, color.get_color("white"), speed=3))
+		self.scenes.append(Parallax("hold", 54, "flower", self.g, self.params))
+		self.scenes.append(BigText("trigger", 50, color.get_color("white"), '''I I I I I do what I wanna wanna do wanna wanna do what I
 													I I I I I do what I wanna wanna do (wanna wanna) what I what I want
 													I I I I I do what I wanna wanna do wanna wanna do what I
 													I do what I wanna wanna do I do what I like'''))
-		self.scenes.append(Flash("trigger", 42, color.WHITE))
+		self.scenes.append(Flash("trigger", 51, color.get_color("white")))
 
 		@self.g.window.event
 		def on_draw():
@@ -46,8 +48,6 @@ class App:
 		pyglet.app.run()
 
 		
-		#self.scenes.append(Bubbles(pyxel, "trigger", 44))
-
 	def run(self, dt):
 			self.g.begin_drawing()
 			self.update()

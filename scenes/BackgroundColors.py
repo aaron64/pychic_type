@@ -5,10 +5,11 @@ class BackgroundColors(Scene):
 		super().__init__(switch_type, key)
 		self.colors = colors
 		self.color_counter = 0
+		self.visible = True
 		
 	def draw(self, g, params):
-		if(True):
-			g.fill_rect(0,0,params.width,params.height, self.colors[self.color_counter%len(self.colors)])
+		if(self.visible):
+			g.fill_rect(0,0,params.width,params.height, self.colors[self.color_counter%len(self.colors)], g.background)
 
 	def trigger(self, params):
 		self.color_counter+=1

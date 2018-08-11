@@ -12,7 +12,8 @@ class Image():
 		if y is None:
 			y = self.y
 
-		self.image.blit(x,y)
-		#spr = pyglet.sprite.Sprite(self.image, batch=g.main_batch, group=g.background)
-		#spr.x = x
-		#spr.y = y
+		#self.image.blit(x,y)
+		spr = pyglet.sprite.Sprite(self.image, batch=g.main_batch, group=g.background)
+		spr.x = x
+		spr.y = y
+		
