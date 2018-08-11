@@ -8,6 +8,7 @@ from scenes.Parallax import Parallax
 from scenes.BigText import BigText
 from scenes.Flash import Flash
 from scenes.BackgroundColors import BackgroundColors
+from scenes.BackgroundColor import BackgroundColor
 
 from util.MidiInputHandler import MidiInputHandler
 
@@ -31,7 +32,8 @@ class App:
 
 		self.scenes = []
 
-		# self.scenes.append(BackgroundColors("trigger", 44, colors=[color.get_color("terq"), color.get_color("blue"), color.get_color("purple")]))
+		self.scenes.append(BackgroundColor("knob", 3, color.get_color("red")))
+		#self.scenes.append(BackgroundColors("trigger", 44, colors=[color.get_color("terq"), color.get_color("blue"), color.get_color("purple")]))
 		self.scenes.append(Strobe("hold", 48, color.get_color("white"), speed=3))
 		self.scenes.append(Parallax("hold", 54, "flower", self.g, self.params))
 		self.scenes.append(BigText("trigger", 50, color.get_color("white"), '''I I I I I do what I wanna wanna do wanna wanna do what I

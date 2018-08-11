@@ -6,7 +6,7 @@ import util.color as color
 class Graphics:
 
 	def __init__(self, params):
-		self.window = pyglet.window.Window(width = params.width, height = params.height, fullscreen=True)
+		self.window = pyglet.window.Window(width = params.width, height = params.height)
 		self.main_batch = pyglet.graphics.Batch()
 		self.background = pyglet.graphics.OrderedGroup(0)
 		self.foreground = pyglet.graphics.OrderedGroup(1)

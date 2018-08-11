@@ -4,6 +4,9 @@ class Scene:
 		self.visible = visible
 		self.key = key
 
+		if(self.switch_type == "knob"):
+			self.visible = True
+
 	def update(self, params):
 		pass
 

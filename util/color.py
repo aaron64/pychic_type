@@ -1,4 +1,5 @@
 import copy
+import math
 
 colors = {}
 
@@ -40,11 +41,11 @@ def set_opacity(col, opacity):
 	return col
 
 def interpolate(col1, col2, val):
-	val /= 255
-	R = (col2[0] - col1[0]) * val + col1[0]
-	G = (col2[1] - col1[1]) * val + col1[1]
-	B = (col2[2] - col1[2]) * val + col1[2]
-	A = (col2[3] - col1[3]) * val + col1[3]
+	val /= 127
+	R = math.floor((col2[0] - col1[0]) * val + col1[0])
+	G = math.floor((col2[1] - col1[1]) * val + col1[1])
+	B = math.floor((col2[2] - col1[2]) * val + col1[2])
+	A = math.floor((col2[3] - col1[3]) * val + col1[3])
 	return [R,G,B,A] * 4
 
 def init_colors():
