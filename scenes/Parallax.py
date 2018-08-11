@@ -21,13 +21,13 @@ class Parallax(Scene):
 		arr = []
 		for i in range(self.sprites_x):
 			for j in range(self.sprites_y):
-				arr.append(5 * j)
-				arr.append(10)
-				#arr.append((i-1) * self.image.width * self.space + (params.frame_count * self.speed)%(self.image.width * self.space))
-				#arr.append((j-1) * self.image.height * self.space + (params.frame_count * self.speed)%(self.image.height * self.space))
+				# arr.append(5 * j)
+				# arr.append(10)
+				arr.append((i-1) * self.image.width * self.space + (params.frame_count * self.speed)%(self.image.width * self.space))
+				arr.append((j-1) * self.image.height * self.space + (params.frame_count * self.speed)%(self.image.height * self.space))
 				index+=1
 				#print((j-1) * self.image.height * self.space + (params.frame_count * self.speed)%(self.image.height * self.space))
 		self.sprites.set_pos(arr)
 
 	def draw(self, g, params):
-		pass
+		self.sprites.send_to_batch(g)

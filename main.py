@@ -49,9 +49,9 @@ class App:
 
 		
 	def run(self, dt):
-			self.g.begin_drawing()
-			self.update()
-			self.draw()
+		self.g.begin_drawing()
+		self.update()
+		self.draw()
 
 	def update(self):
 		self.params.frame_count += 1
