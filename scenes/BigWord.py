@@ -1,12 +1,16 @@
 import pyglet
 
-import util.color
+import util.color as color_util
 from scenes.Scene import Scene
 
-class BigText(Scene):
-	def __init__(self, switch_type, key, text, color=color.get_color("white")):
+class BigWord(Scene):
+	def __init__(self, switch_type, key, text, color=None):
 		super().__init__(switch_type, key)
 		self.text = text
+		
+		self.color = color
+		if(self.color == None):
+			self.color = color_util.get_color("white")
 
 
 	def update(self, params):
@@ -23,4 +27,4 @@ class BigText(Scene):
 				anchor_x='center', anchor_y='center')
 
 	def knob(self, params, val):
-		self.color = color.setTransparency(val)
+		self.color = color_util.setTransparency(val)

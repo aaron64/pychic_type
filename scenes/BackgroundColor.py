@@ -18,6 +18,5 @@ class BackgroundColor(Scene):
 			g.fill_rect(0,0,params.width,params.height, self.renderColor, g.background)
 
 	def knob(self, params, val):
-		print('hi')
 		self.renderColor = color.interpolate(self.color1, self.color2, val)
 		

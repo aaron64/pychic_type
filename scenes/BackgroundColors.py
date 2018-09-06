@@ -3,9 +3,10 @@ from scenes.Scene import Scene
 class BackgroundColors(Scene):
 	def __init__(self, switch_type, key, colors):
 		super().__init__(switch_type, key)
+		self.visible = True
+		
 		self.colors = colors
 		self.color_counter = 0
-		self.visible = True
 		
 	def draw(self, g, params):
 		if(self.visible):

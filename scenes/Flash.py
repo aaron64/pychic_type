@@ -1,11 +1,14 @@
 from scenes.Scene import Scene
-import util.color as color
+import util.color as color_util
 from random import randint
 
 class Flash(Scene):
-	def __init__(self, switch_type, key, color, speed=10):
+	def __init__(self, switch_type, key, color=None, speed=10):
 		super().__init__(switch_type, key)
 		self.color = color
+		if(self.color == None):
+			self.color = color_util.get_color("white")
+
 		self.speed = speed
 		self.opacity = 0
 
@@ -15,7 +18,7 @@ class Flash(Scene):
 		if(self.opacity < 0):
 			self.visible = False
 			self.opacity = 0
-		self.color = color.set_opacity(self.color, self.opacity)
+		self.color = color_util.set_opacity(self.color, self.opacity)
 
 	def draw(self, g, params):
 		if(self.visible):

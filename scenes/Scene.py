@@ -1,10 +1,11 @@
 class Scene:
-	def __init__(self, switch_type, key, visible=False):
+	def __init__(self, switch_type, key inverse=False):
 		self.switch_type = switch_type
-		self.visible = visible
+		self.visible = not inverse
+		self.inverse = inverse
 		self.key = key
 
-		if(self.switch_type == "knob"):
+		if(self.switch_type == "trigger" or self.switch_type == "knob"):
 			self.visible = True
 
 	def update(self, params):
@@ -17,10 +18,10 @@ class Scene:
 		pass
 
 	def toggle(self, params):
-		self.visible = not visible
+		self.visible = not self.visible
 
 	def hold(self, params, visible):
-		self.visible = visible
+		self.visible = visible not inverse
 
 	def knob(self, params, val):
 		pass

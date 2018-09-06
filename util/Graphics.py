@@ -14,11 +14,10 @@ class Graphics:
 		pyglet.gl.glBlendFunc(pyglet.gl.GL_SRC_ALPHA, pyglet.gl.GL_ONE_MINUS_SRC_ALPHA)
 
 	def begin_drawing(self):
-		#self.window.clear()
 		self.main_batch = pyglet.graphics.Batch()
 
 	def render_to_window(self):
-		self.window.clear()
+		#self.window.clear()
 		self.main_batch.draw()
 
 	def fill_rect(self, x, y, w, h, col, render_group):
