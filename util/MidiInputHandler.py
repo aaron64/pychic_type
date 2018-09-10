@@ -25,4 +25,4 @@ class MidiInputHandler(object):
 				if(scene.switch_type == "hold"):
 					scene.hold(self.params, state > 0)
 				if(scene.switch_type == "knob"):
-					scene.knob(self.params, state)
+					scene.knob(self.params, state/127)

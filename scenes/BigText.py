@@ -17,9 +17,6 @@ class BigText(Scene):
 		if(self.color == None):
 			self.color = color_util.get_color("white")
 
-	def update(self, params):
-		pass
-
 	def draw(self, g, params):
 		if(self.visible):
 			pyglet.text.Label(self.text[self.step],

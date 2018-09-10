@@ -41,11 +41,10 @@ def set_opacity(col, opacity):
 	return col
 
 def interpolate(col1, col2, val):
-	val /= 127
-	R = math.floor((col2[0] - col1[0]) * val + col1[0])
-	G = math.floor((col2[1] - col1[1]) * val + col1[1])
-	B = math.floor((col2[2] - col1[2]) * val + col1[2])
-	A = math.floor((col2[3] - col1[3]) * val + col1[3])
+	R = math.floor((col1[0] - col2[0]) * val + col2[0])
+	G = math.floor((col1[1] - col2[1]) * val + col2[1])
+	B = math.floor((col1[2] - col2[2]) * val + col2[2])
+	A = math.floor((col1[3] - col2[3]) * val + col2[3])
 	return [R,G,B,A] * 4
 
 def init_colors():

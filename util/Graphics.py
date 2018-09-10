@@ -6,19 +6,21 @@ import util.color as color
 class Graphics:
 
 	def __init__(self, params):
-		self.window = pyglet.window.Window(width = params.width, height = params.height)
 		self.main_batch = pyglet.graphics.Batch()
 		self.background = pyglet.graphics.OrderedGroup(0)
 		self.foreground = pyglet.graphics.OrderedGroup(1)
 		pyglet.gl.glEnable(pyglet.gl.GL_BLEND)
 		pyglet.gl.glBlendFunc(pyglet.gl.GL_SRC_ALPHA, pyglet.gl.GL_ONE_MINUS_SRC_ALPHA)
 
-	def begin_drawing(self):
+	def begin_drawing(self, window):
+		window.clear()
 		self.main_batch = pyglet.graphics.Batch()
 
-	def render_to_window(self):
-		#self.window.clear()
-		self.main_batch.draw()
+	def finish_drawing(self, window):
+		#self.main_batch.draw()
+		#window.flip()
+		event = window.dispatch_events()
+		
 
 	def fill_rect(self, x, y, w, h, col, render_group):
 		self.main_batch.add(4, 

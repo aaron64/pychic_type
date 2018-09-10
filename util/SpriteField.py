@@ -10,6 +10,7 @@ class SpriteField():
 		self.sprites = []
 		for i in range (amount):
 			self.sprites.append(pyglet.sprite.Sprite(self.image, x=0, y=0, batch=g.main_batch, group=g.foreground))
+			
 	def set_pos(self, pos_arr):
 		pass
 		for i in range (self.size):

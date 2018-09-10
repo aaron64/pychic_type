@@ -19,6 +19,9 @@ class Image():
 
 		if render_group is None:
 			render_group = g.background
+		
+		self.spr.x = x
+		self.spr.y = y
 		self.spr.batch = g.main_batch
 
 		#self.image.blit(x,y)

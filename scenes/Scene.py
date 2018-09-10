@@ -1,7 +1,7 @@
 class Scene:
-	def __init__(self, switch_type, key inverse=False):
+	def __init__(self, switch_type, key, inverse=False):
 		self.switch_type = switch_type
-		self.visible = not inverse
+		self.visible = inverse
 		self.inverse = inverse
 		self.key = key
 
@@ -21,7 +21,7 @@ class Scene:
 		self.visible = not self.visible
 
 	def hold(self, params, visible):
-		self.visible = visible not inverse
+		self.visible = visible != self.inverse
 
 	def knob(self, params, val):
 		pass

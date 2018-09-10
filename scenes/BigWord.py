@@ -23,7 +23,7 @@ class BigWord(Scene):
 				font_size=168,
 				batch=g.main_batch,
 				group=g.foreground,
-				x=g.window.width/2, y=g.window.height/2,
+				x=params.width/2, y=params.height/2,
 				anchor_x='center', anchor_y='center')
 
 	def knob(self, params, val):
