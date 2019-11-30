@@ -6,9 +6,9 @@ import pyglet
 import math
 
 class ImageLine(Scene):
-	def __init__(self, switch_type, key, res, g, params, intercept, v = 1, space = 64, speed = 6, horizontal = True):
+	def __init__(self, switch_type, key, g, params, res, intercept, v = 1, space = 64, speed = 6, horizontal = True):
 		super().__init__(switch_type, key)
-		self.image = pyglet.image.load('res/' + res + '.png')	
+		self.image = pyglet.image.load('res/image/' + res + '.png')	
 		self.space = space
 		self.speed = speed
 		self.horizontal = horizontal

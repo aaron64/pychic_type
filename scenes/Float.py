@@ -1,3 +1,4 @@
+# MIGHT NOT NEED, very similar to ImageShake
 from util.Image import Image as img
 
 from scenes.Scene import Scene
@@ -7,7 +8,7 @@ import pyglet
 class Float(Scene):
 	def __init__(self, switch_type, key, res, g, x, y, s=1, speed=1, amount=10):
 		super().__init__(switch_type, key)
-		self.image = img(res, g, x, y, s=s)#pyglet.image.load('res/' + res + '.png')	
+		self.image = img(res, g, x, y, s=s)
 		self.x = x
 		self.y = y
 

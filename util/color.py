@@ -7,7 +7,7 @@ def add_color(name, col):
 	colors[name] = col*4
 
 def get_color(name):
-	return copy.deepcopy(colors[name])
+	return copy.deepcopy(colors[name.upper()])
 
 def convert_to_4(col):
 	return [col[0],col[1],col[2],col[3]]
@@ -48,9 +48,9 @@ def interpolate(col1, col2, val):
 	return [R,G,B,A] * 4
 
 def init_colors():
-	add_color("white", [255,255,255,255])
-	add_color("black", [0,0,0,255])
-	add_color("red", [255,0,0,255])
-	add_color("green", [0,255,0,255])
-	add_color("blue", [0,0,255,255])
-	add_color("transparent", [255,255,255,0])
+	add_color("WHITE", [255,255,255,255])
+	add_color("BLACK", [0,0,0,255])
+	add_color("RED", [255,0,0,255])
+	add_color("GREEN", [0,255,0,255])
+	add_color("BLUE", [0,0,255,255])
+	add_color("TRANSPARENT", [255,255,255,0])

@@ -1,4 +1,5 @@
 from util.SpriteField import SpriteField
+from util.vec2f import vec2f
 from scenes.Scene import Scene
 
 import pyglet
@@ -6,16 +7,13 @@ import pyglet
 import math
 
 class Parallax(Scene):
-	def __init__(self, switch_type, key, res, g, params, xv = 1, yv = 1, space = 64, speed = 6):
+	def __init__(self, switch_type, key, g, params, res, v=vec2f(1,1), space = 64, speed = 6):
 		super().__init__(switch_type, key)
-		self.image = pyglet.image.load('res/' + res + '.png')	
+		self.image = pyglet.image.load('res/image/' + res + '.png')	
 		self.space = space
 		self.speed = speed
-		self.xv = xv
-		self.yv = yv
-		
-		print(self.image.width)
-		print(math.ceil(params.width/(self.image.width+self.space))+1)
+
+		self.v = v
 
 		self.sprites_x = math.ceil(params.width / (self.image.width + self.space)) + 1
 		self.sprites_y = math.ceil(params.height / (self.image.height + self.space)) + 1
@@ -26,8 +24,8 @@ class Parallax(Scene):
 		arr = []
 		for i in range(self.sprites_x):
 			for j in range(self.sprites_y):
-				arr.append((i-1) * (self.image.width + self.space) + (params.frame_count * self.speed * self.xv)%(self.image.width + self.space))
-				arr.append((j-1) * (self.image.height + self.space) + (params.frame_count * self.speed * self.yv)%(self.image.height + self.space))
+				arr.append((i-1) * (self.image.width + self.space) + (params.frame_count * self.speed * self.v.x)%(self.image.width + self.space))
+				arr.append((j-1) * (self.image.height + self.space) + (params.frame_count * self.speed * self.v.y)%(self.image.height + self.space))
 				index+=1
 		self.sprites.set_pos(arr)
 

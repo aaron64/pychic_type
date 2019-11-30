@@ -2,7 +2,7 @@ import pyglet
 
 class SpriteField():
 	def __init__(self, amount, res, g):
-		self.image = pyglet.image.load('res/' + res + '.png')
+		self.image = pyglet.image.load('res/image/' + res + '.png')
 		self.size = amount
 		self.image_width = self.image.width
 		self.image_height = self.image.height

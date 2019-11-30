@@ -3,29 +3,32 @@ import math
 from entities.Entity import Entity
 from scenes.Scene import Scene
 
+import pyglet
+
 class Bubbles(Scene):
-	def __init__(self, switch_type, key):
+	def __init__(self, switch_type, key, res):
 		super().__init__(switch_type, key)
-		self.arr=[]
+		self.bubbles=[]
+		self.image = pyglet.image.load('res/' + res + '.png')
 
 	def update(self, params):
-		for b in self.arr:
+		for b in self.bubbles:
 			b.update(params)
 			if(b.y < 0):
-				self.arr.remove(b)
+				self.bubbles.remove(b)
 
 	def draw(self, g, params):
-		for b in self.arr:
+		for b in self.bubbles:
 			b.draw(g)
 
 	def trigger(self, params):
 		for a in range(10):
-			self.arr.append(Bubble(params))
+			self.bubbles.append(Bubble(params, self.image))
 
 	def hold(self, params):
 		super().hold(params)
-		#if(params.frame_count%5 == 0):
-		#	self.arr.append(Bubble(params))
+		if(params.frame_count%5 == 0):
+			self.bubbles.append(Bubble(params, self.image))
 
 class Bubble(Entity):
 
@@ -46,7 +49,6 @@ class Bubble(Entity):
 		self.phase += 0.01
 
 	def draw(self, g, params):
-		pass
-		#pyxel.circb(self.dx, self.y, self.r, 12)
-		#pyxel.circb(self.dx + 2, self.y + 2, self.r/6, 6)
+		for bubble in self.bubbles:
+			bubble.draw(g, params)	
 
